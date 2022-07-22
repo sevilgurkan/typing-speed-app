@@ -1,20 +1,12 @@
-<div>
-    <div>
-        <h2 align="center">
-            Typing Speed App
-        </h2>
-        <p align="center">
-            <i>Reactjs</i>
-        </p>
-    </div>
-  <div align="center">
+# Typing Speed Application
+
+<div align="center">
     <img width="500" src="./public/app_1.png" alt="preview 1" />
     <img width="500" src="./public/app_2.png" alt="preview 2" />
     <img width="500" src="./public/app_3.png" alt="preview 3" />
-  </div>
 </div>
 
-# Notice
+## Notice
 
 All data is embedded on the client side. I did not do backend integration. I gave a fake fetch view in api/fakeApi.js.
 
@@ -31,3 +23,8 @@ All data is embedded on the client side. I did not do backend integration. I gav
 ```console
   git clone https://github.com/sevilgurkan/typing-speed-app.git
 ```
+
+## Tech
+
+- [React](https://reactjs.org/)
+- [Tailwindcss](https://tailwindcss.com/)
