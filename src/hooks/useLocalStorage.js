@@ -17,7 +17,7 @@ export function useLocalStorage(
 
       return item ? deserialize(item) : initialValue;
     } catch (error) {
-      console.log(error);
+      // error handling...
       return initialValue;
     }
   });
@@ -30,7 +30,7 @@ export function useLocalStorage(
 
       window.localStorage.setItem(key, serialize(valueToStore));
     } catch (error) {
-      console.log(error);
+      // error handling...
     }
   };
 

@@ -1,4 +1,5 @@
 import { ErrorBoundary } from "react-error-boundary";
+import PropTypes from "prop-types";
 
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
@@ -23,3 +24,7 @@ export function BoardErrorBoundary({ children }) {
     <ErrorBoundary FallbackComponent={ErrorFallback}>{children}</ErrorBoundary>
   );
 }
+
+BoardErrorBoundary.propTypes = {
+  children: PropTypes.node.isRequired,
+};

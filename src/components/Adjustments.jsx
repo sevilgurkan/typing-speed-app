@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 
 import { useTranslation } from "../i18n";
@@ -90,7 +91,7 @@ export function Adjustments({ canAdjust, onAdjustmentChange }) {
   }, [gameAdjustments]);
 
   return (
-    <div className="primary-border flex flex-col absolute -right-44 top-0 shadow-lg shadow-black rounded-md text-center w-40 overflow-hidden">
+    <div className="primary-border absolute -right-44 top-0 flex w-40 flex-col overflow-hidden rounded-md text-center shadow-lg shadow-black">
       <div
         className={`flex items-center justify-around p-2 ${
           !canAdjust && "pointer-events-none"
@@ -107,7 +108,7 @@ export function Adjustments({ canAdjust, onAdjustmentChange }) {
         btn.features.map((feature) => (
           <div
             key={feature.value}
-            className={clsx("flex-col text-center text-sm py-2", {
+            className={clsx("flex-col py-2 text-center text-sm", {
               flex: gameAdjustmentMenus[btn.key],
               hidden: !gameAdjustmentMenus[btn.key],
             })}
@@ -121,10 +122,15 @@ export function Adjustments({ canAdjust, onAdjustmentChange }) {
         ))
       )}
       {!canAdjust && (
-        <span className="text-sm text-gray-600 py-2">
+        <span className="py-2 text-sm text-gray-600">
           {translation("info.adjustments")}
         </span>
       )}
     </div>
   );
 }
+
+Adjustments.propTypes = {
+  canAdjust: PropTypes.bool,
+  onAdjustmentChange: PropTypes.func,
+};

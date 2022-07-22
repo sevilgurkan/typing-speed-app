@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import { useTranslation } from "../i18n";
 
 export function Notice({ translationKey }) {
@@ -8,3 +10,7 @@ export function Notice({ translationKey }) {
     </div>
   );
 }
+
+Notice.propTypes = {
+  translationKey: PropTypes.string.isRequired,
+};

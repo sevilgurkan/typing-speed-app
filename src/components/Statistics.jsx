@@ -1,4 +1,6 @@
+import PropTypes from "prop-types";
 import clsx from "clsx";
+
 import { useTranslation } from "../i18n";
 
 export function Statistics({ statistics, isGameEnd }) {
@@ -39,7 +41,7 @@ function StatisticsList({ children, isGameEnd }) {
   return (
     <div
       className={clsx(
-        "primary-border absolute space-y-2 -left-44 top-0 shadow-lg transition-all duration-500 shadow-black p-2 rounded-md text-center w-40",
+        "primary-border absolute -left-44 top-0 w-40 space-y-2 rounded-md p-2 text-center shadow-lg shadow-black transition-all duration-500",
         isGameEnd && "border border-x-yellow-500 border-y-yellow-300"
       )}
     >
@@ -62,3 +64,23 @@ function StatisticsItem({
     </div>
   );
 }
+
+Statistics.propTypes = {
+  statistics: PropTypes.shape({
+    keystrokes: PropTypes.number.isRequired,
+    corrects: PropTypes.number.isRequired,
+    wrongs: PropTypes.number.isRequired,
+    accuracy: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+      .isRequired,
+    wordsPerMinute: PropTypes.number.isRequired,
+  }),
+  isGameEnd: PropTypes.bool.isRequired,
+};
+
+StatisticsItem.propTypes = {
+  className: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  titleClass: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  valueClass: PropTypes.string,
+};

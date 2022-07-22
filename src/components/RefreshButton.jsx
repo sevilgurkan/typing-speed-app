@@ -1,7 +1,9 @@
+import PropTypes from "prop-types";
+
 export function RefreshButton({ onClick }) {
   return (
     <button
-      className="bg-transparent w-10 h-10 flex items-center justify-center rounded-sm hover:text-white group"
+      className="group flex h-10 w-10 items-center justify-center rounded-sm bg-transparent hover:text-white"
       onClick={onClick}
     >
       <svg
@@ -21,3 +23,7 @@ export function RefreshButton({ onClick }) {
     </button>
   );
 }
+
+RefreshButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};

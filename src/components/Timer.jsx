@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
 
 import { GAME_TIME_SECOND } from "../constants";
 
 export function Timer({ status, onTimeEnd }) {
   const [gameTime, setGameTime] = useState(GAME_TIME_SECOND);
   const intervalRef = useRef();
-  // const statusPrevRef = useRef();
 
   const isGameStart = status === "start";
   const isGameIdle = status === "idle";
@@ -36,10 +36,10 @@ export function Timer({ status, onTimeEnd }) {
   }, [isGameIdle]);
 
   return (
-    <div className="bg-transparent flex items-center justify-center rounded-sm">
+    <div className="flex items-center justify-center rounded-sm bg-transparent">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-5 w-5 mr-1"
+        className="mr-1 h-5 w-5"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -55,3 +55,8 @@ export function Timer({ status, onTimeEnd }) {
     </div>
   );
 }
+
+Timer.propTypes = {
+  status: PropTypes.string.isRequired,
+  onTimeEnd: PropTypes.func.isRequired,
+};

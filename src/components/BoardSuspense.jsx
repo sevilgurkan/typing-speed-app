@@ -1,4 +1,6 @@
 import { Suspense } from "react";
+import PropTypes from "prop-types";
+
 import { Spinner } from "./Spinner";
 
 export function BoardSuspense({ children, loaderClass }) {
@@ -8,3 +10,8 @@ export function BoardSuspense({ children, loaderClass }) {
     </Suspense>
   );
 }
+
+BoardSuspense.propTypes = {
+  children: PropTypes.node.isRequired,
+  loadClass: PropTypes.string,
+};

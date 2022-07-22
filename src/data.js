@@ -59,7 +59,7 @@ function combineStrings(language, combineCount) {
    * otherwise continue from current state
    */
   return WORDS[language].reduce((prev, curr, idx) => {
-    return idx < combineCount ? prev + curr : prev;
+    return idx < combineCount ? prev + " " + curr : prev;
   });
 }
 
@@ -71,8 +71,8 @@ const makeStringArray = (str) => str.split(" ");
 
 const makeUnique = (array) => [...new Set(array)];
 
-const shuffleWords = (array) => {
-  let currentIndex = array.length,
+const shuffleWords = (ar) => {
+  let currentIndex = ar.length,
     randomIndex;
 
   // While there remain elements to shuffle.
@@ -82,13 +82,10 @@ const shuffleWords = (array) => {
     currentIndex--;
 
     // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ];
+    [ar[currentIndex], ar[randomIndex]] = [ar[randomIndex], ar[currentIndex]];
   }
 
-  return array;
+  return ar;
 };
 
 const handleAllProcess = (str) => {
@@ -101,9 +98,9 @@ const handleAllProcess = (str) => {
 };
 
 /**
- * @param {string} amount
+ * @param {string} amount amount of words
  * @param {string} language en or tr
- * @returns string array
+ * @returns {string[]}
  */
 export function getWords(language, amount) {
   return handleAllProcess(

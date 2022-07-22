@@ -1,4 +1,5 @@
 import { useState, useReducer, useRef, useEffect } from "react";
+import PropTypes from "prop-types";
 
 // Components
 import { Container } from "./Container";
@@ -24,14 +25,8 @@ import { calculateAccuracy, calculateWordsPerMinute } from "../utils";
 import { useTranslation } from "../i18n";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
-//
-//
-//
-
 const statusReducer = (s, a) => ({ ...s, ...a });
 const initialStatus = { status: "idle" };
-
-// const initialResource = fetchWordsData("en", "200");
 
 export function GameContainer({ onReset }) {
   const { language, changeLanguage } = useTranslation();
@@ -67,7 +62,6 @@ export function GameContainer({ onReset }) {
 
   const isGameEnd = status === "end";
   const isGameIdle = status === "idle";
-  const canAdjust = status === "idle";
 
   const loaderClass = adjustments.boardSize;
 
@@ -142,7 +136,6 @@ export function GameContainer({ onReset }) {
   };
 
   useEffect(() => {
-    console.log(language);
     setResource(fetchWordsData(language, selectedWordAmount));
   }, [language, selectedWordAmount]);
 
@@ -156,7 +149,7 @@ export function GameContainer({ onReset }) {
           Adjustments Menu 
         */}
       <Adjustments
-        canAdjust={canAdjust}
+        canAdjust={isGameIdle}
         onAdjustmentChange={changeAdjustments}
       />
 
@@ -219,3 +212,7 @@ export function GameContainer({ onReset }) {
     </Container>
   );
 }
+
+GameContainer.propTypes = {
+  onReset: PropTypes.func.isRequired,
+};

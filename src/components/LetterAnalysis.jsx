@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import clsx from "clsx";
 
 export function LetterAnalysis({ analysis, isGameEnd }) {
@@ -5,13 +6,12 @@ export function LetterAnalysis({ analysis, isGameEnd }) {
 
   return (
     <section className=" mt-8">
-      {/* <h2 className="text-lg my-2">Letter Analysis</h2> */}
       <div className="flex flex-wrap">
         {Object.keys(pressedKeys).map((key) => (
           <div
             key={key}
             className={clsx(
-              "flex flex-col items-center transition-colors duration-100 justify-center primary-border p-2 basis-[10%]",
+              "primary-border flex basis-[10%] flex-col items-center justify-center p-2 transition-colors duration-100",
               { "border-gray-600": currentKey === key && !isGameEnd }
             )}
           >
@@ -23,3 +23,11 @@ export function LetterAnalysis({ analysis, isGameEnd }) {
     </section>
   );
 }
+
+LetterAnalysis.propTypes = {
+  analysis: PropTypes.shape({
+    pressedKeys: PropTypes.instanceOf(Object),
+    currentKey: PropTypes.string,
+  }).isRequired,
+  isGameEnd: PropTypes.bool.isRequired,
+};

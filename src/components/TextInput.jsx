@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
+
 import { useTranslation } from "../i18n";
 
 import { isBlockedKey } from "../utils";
@@ -26,7 +28,6 @@ export function TextInput({
 
   const handleOnChange = (e) => {
     if (!isGameStart) {
-      console.log("started");
       onStartTyping();
     }
 
@@ -90,7 +91,7 @@ export function TextInput({
       ref={inputRef}
       type="text"
       value={inputValue}
-      className="outline-none shadow-sm bg-transparent text-gray-300 px-2 py-1 rounded-lg border border-gray-600 placeholder:text-center placeholder:text-sm placeholder:text-gray-500"
+      className="rounded-lg border border-gray-600 bg-transparent px-2 py-1 text-gray-300 shadow-sm outline-none placeholder:text-center placeholder:text-sm placeholder:text-gray-500"
       onChange={handleOnChange}
       onKeyDown={handleKeyDown}
       disabled={isGameEnd}
@@ -98,3 +99,10 @@ export function TextInput({
     />
   );
 }
+
+TextInput.propTypes = {
+  status: PropTypes.string.isRequired,
+  onStartTyping: PropTypes.func.isRequired,
+  onAnswer: PropTypes.func.isRequired,
+  handleLetterAnalysis: PropTypes.func.isRequired,
+};

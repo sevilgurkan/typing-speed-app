@@ -1,4 +1,5 @@
 import { useDeferredValue } from "react";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 
 import { WORD_CLASSES } from "../constants";
@@ -32,7 +33,7 @@ export function Board({
   return (
     <div
       className={clsx(
-        "p-2 my-4 overflow-hidden transition-transform",
+        "my-4 overflow-hidden p-2 transition-transform",
         gameAdjustments.boardSize
       )}
     >
@@ -56,3 +57,21 @@ export function Board({
     </div>
   );
 }
+
+Board.propTypes = {
+  resource: PropTypes.shape({
+    words: PropTypes.shape({ read: PropTypes.func }),
+  }),
+  gameAdjustments: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      boardSize: PropTypes.string,
+      textAlignment: PropTypes.string,
+      textSize: PropTypes.string,
+    }),
+  ]),
+  boardOffsetTop: PropTypes.number,
+  wordsRef: PropTypes.object,
+  currentIndex: PropTypes.number,
+  results: PropTypes.instanceOf(Map),
+};

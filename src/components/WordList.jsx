@@ -1,9 +1,9 @@
+import PropTypes from "prop-types";
 import clsx from "clsx";
 
 export const WordList = ({ resource, updateWordClass, isStale, itemsRef }) => {
   const words = resource.words.read();
 
-  console.log(isStale);
   return (
     words &&
     words.map((word, index) => (
@@ -18,4 +18,17 @@ export const WordList = ({ resource, updateWordClass, isStale, itemsRef }) => {
       </span>
     ))
   );
+};
+
+WordList.propTypes = {
+  resource: PropTypes.shape({
+    words: PropTypes.shape({
+      read: PropTypes.func.isRequired,
+    }).isRequired,
+  }).isRequired,
+  updateWordClass: PropTypes.func.isRequired,
+  isStale: PropTypes.bool.isRequired,
+  itemsRef: PropTypes.shape({
+    current: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }).isRequired,
 };
