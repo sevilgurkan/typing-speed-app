@@ -3,9 +3,9 @@
     <i>Typing Speed App</i>
   </p>
   <div align="center">
-    <img width="400" src="./public/app_1.png" alt="preview 1" />
-    <img width="400" src="./public/app_2.png" alt="preview 2" />
-    <img width="400" src="./public/app_3.png" alt="preview 3" />
+    <img width="300" src="./public/app_1.png" alt="preview 1" />
+    <img width="300" src="./public/app_2.png" alt="preview 2" />
+    <img width="300" src="./public/app_3.png" alt="preview 3" />
   </div>
 </div>
 
