@@ -1,10 +1,12 @@
 <div>
-  <h2 align="center">
-    <i>Typing Speed App</i>
-  </h2>
-  <p align="center">
-    <i>Reactjs</i>
-  </p>
+    <div>
+        <h2 align="center">
+            Typing Speed App
+        </h2>
+        <p align="center">
+            <i>Reactjs</i>
+        </p>
+    </div>
   <div align="center">
     <img width="500" src="./public/app_1.png" alt="preview 1" />
     <img width="500" src="./public/app_2.png" alt="preview 2" />
