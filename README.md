@@ -1,6 +1,9 @@
 <div>
-  <p align="center">
+  <h2 align="center">
     <i>Typing Speed App</i>
+  </h2>
+  <p align="center">
+    <i>Reactjs</i>
   </p>
   <div align="center">
     <img width="500" src="./public/app_1.png" alt="preview 1" />
@@ -11,7 +14,7 @@
 
 # Notice
 
-This is not a completed game. I have not integrated some of the game rules and it is not fully optimized. It's a game I scribble while I'm resting.
+All data is embedded on the client side. I did not do backend integration. I gave a fake fetch view in api/fakeApi.js.
 
 ## Features
 
