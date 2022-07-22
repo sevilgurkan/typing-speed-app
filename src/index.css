@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  background-color: #171a1c;
+  color: #a1a7aa;
+}
+
+#root {
+  min-width: 1265px;
+}
+
+@layer components {
+  .primary-border {
+    border: 1px solid hsl(200 10% 50% / 15%);
+  }
+
+  .word {
+    @apply p-1 transition-colors duration-150;
+  }
+}
